@@ -1,80 +1,96 @@
-# 21. Find the longest word in "Deep learning simplifies many complex tasks".
+# LEVEL 3 – ADVANCED STRING PROBLEMS
 
-'''
-string = "Deep learning simplifies many complex tasks"
+def problem_21():
+    # 21. Find the longest word in "Deep learning simplifies many complex tasks".
+    string = "Deep learning simplifies many complex tasks"
 
-words = string.split(" ")
-global greatest
+    words = string.split(" ")
+    greatest = words[0]
+    for i in range(len(words)):
+        if len(words[i]) > len(greatest):
+            greatest = words[i]
 
-greatest = words[0]
-for i  in range(len(words)):
-    if len(words[i]) > len(greatest):
-        greatest = words[i]
-
-print("The longest word is {}".format(greatest))    #$ all good!
-'''
-
-## 22. Count uppercase and lowercase letters in "OpenAI GPT Model".
-
-'''
-string = "OpenAI GPT Model"
-ucase = 0
-lcase = 0
-for i in string:
-    if i.isupper():
-        ucase+=1
-    elif i.islower():
-        lcase+=1
-
-print("Ucase : {}, Lcase = {}".format(ucase,lcase)) #$all good
-'''
+    print("21. The longest word is {}".format(greatest), "\n")
 
 
+def problem_22():
+    # 22. Count uppercase and lowercase letters in "OpenAI GPT Model".
+    string = "OpenAI GPT Model"
+    ucase = 0
+    lcase = 0
+    for i in string:
+        if i.isupper():
+            ucase += 1
+        elif i.islower():
+            lcase += 1
+    print("22. Ucase : {}, Lcase = {}".format(ucase, lcase), "\n")
 
 
-# 23. Check if "listen" and "silent" are anagrams.
+def problem_23():
+    # 23. Check if "listen" and "silent" are anagrams.
+    one = "listen"
+    two = "silent"
 
+    count1 = {}
+    count2 = {}
 
-# 23. Check if "listen" and "silent" are anagrams
+    for i in one:
+        count1[i] = count1.get(i, 0) + 1
+    for i in two:
+        count2[i] = count2.get(i, 0) + 1
 
-'''
-one = "listen"
-two = "silent"
+    is_anagram = True
+    for i in count1:
+        if i not in count2 or count1[i] != count2[i]:
+            is_anagram = False
+            break
 
-count1 = dict()
-count2 = dict()
-
-
-for i in one:
-    if i in count1:
-        count1[i] += 1
+    if is_anagram and len(count1) == len(count2):
+        print("23. Anagram!\n")
     else:
-        count1[i] = 1
+        print("23. Not an anagram\n")
 
 
-for i in two:
-    if i in count2:
-        count2[i] += 1
-    else:
-        count2[i] = 1
-
-is_anagram = True
-for i in count1:
-    if i not in count2 or count1[i] != count2[i]:
-        is_anagram = False
-        break
+def problem_24():
+    # 24. Remove all duplicate characters from "programming".
+    string = "programming"
+    result = ''
+    for ch in string:
+        if ch not in result:
+            result += ch
+    print("24. Remove duplicates:", result, "\n")
 
 
-if is_anagram and len(count1) == len(count2):
-    print("Anagram!")
-else:
-    print("Not an anagram")
+def problem_25():
+    # 25. Find the most frequent character in "data science is fun".
+    string = "data science is fun"
+    count = {}
 
-     
-    #basically comparing keys. for i in coutn1.keys() is same as for i in count1:
+    for i in string:
+        if i != " ":
+            count[i] = count.get(i, 0) + 1
 
-''' 
+    # find the most frequent character in one pass
+    biggest = 0
+    key = ''
+    for k, v in count.items():
+        if v > biggest:
+            biggest = v
+            key = k
 
-a = dict()
+    print("25. The most frequent character is:", key, "\n")
 
-print(dir(a))
+
+def problem_26():
+    # 26. Check if "_variable123" is a valid Python identifier.
+    string = "_variable123"
+    print("26. Is valid identifier?:", string.isidentifier(), "\n")
+
+
+if __name__ == "__main__":
+    problem_21()
+    problem_22()
+    problem_23()
+    problem_24()
+    problem_25()
+    problem_26()
