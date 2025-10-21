@@ -87,32 +87,37 @@ def problem_26():
     print("26. Is valid identifier?:", string.isidentifier(), "\n")
 
 
-"""if __name__ == "__main__":
-    problem_21()
-    problem_22()
-    problem_23()
-    problem_24()
-    problem_25()
-    problem_26()
-"""
+# 27. Replace every second vowel in "Artificial Intelligence" with "*"
+def problem_27():
+    string = "Artificial Intelligence"
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    new_string = ""
+    count = 0
 
-# 27. Replace every second vowel in "Artificial Intelligence" with "*".
-
-string = "Artificial Intelligence"
-new_string = ""  # we must make new string as replace() wont work as it replaces all, not every 2.
-count=0
-vowels = ['a','e','i','o','u']
-for i in string:
-    if i.lower() in vowels:
-        count+=1
-        if count%2==0:
-            new_string+="*"
+    for ch in string:
+        if ch.lower() in vowels:
+            count += 1
+            if count % 2 == 0:
+                new_string += "*"
+            else:
+                new_string += ch
         else:
-            new_string+=i
-    else:
-        new_string+=i
-        
-       
-        
-print(new_string)
+            new_string += ch
 
+    print("27.", new_string, "\n")
+
+
+# 28. Reverse the order of words in "Machine learning is amazing"
+def problem_28():
+    string = "Machine learning is amazing"
+    words = string.split()
+
+    # Approach 1: Using slicing
+    reversed_words = words[::-1]
+    print("28. Using slicing:", " ".join(reversed_words))
+
+    # Approach 2: Using manual loop
+    reversed_loop = []
+    for i in range(len(words)-1, -1, -1):
+        reversed_loop.append(words[i])
+    print("28. Using loop:", " ".join(reversed_loop), "\n")
