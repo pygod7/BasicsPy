@@ -87,10 +87,32 @@ def problem_26():
     print("26. Is valid identifier?:", string.isidentifier(), "\n")
 
 
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     problem_21()
     problem_22()
     problem_23()
     problem_24()
     problem_25()
     problem_26()
+"""
+
+# 27. Replace every second vowel in "Artificial Intelligence" with "*".
+
+string = "Artificial Intelligence"
+new_string = ""  # we must make new string as replace() wont work as it replaces all, not every 2.
+count=0
+vowels = ['a','e','i','o','u']
+for i in string:
+    if i.lower() in vowels:
+        count+=1
+        if count%2==0:
+            new_string+="*"
+        else:
+            new_string+=i
+    else:
+        new_string+=i
+        
+       
+        
+print(new_string)
+
