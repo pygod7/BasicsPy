@@ -121,3 +121,19 @@ def problem_28():
     for i in range(len(words)-1, -1, -1):
         reversed_loop.append(words[i])
     print("28. Using loop:", " ".join(reversed_loop), "\n")
+
+
+# 29. Convert "thisIsCamelCase" to snake_case
+def problem_29():
+    string = "thisIsCamelCase"
+    words = []
+    word = ''
+    for i in string:
+        if i.isupper():
+            words.append(word)
+            word = i.lower()
+        else:
+            word += i
+    words.append(word)
+    snake_case = "_".join(words)
+    print("29.", snake_case, "\n")
