@@ -137,3 +137,15 @@ def problem_29():
     words.append(word)
     snake_case = "_".join(words)
     print("29.", snake_case, "\n")
+
+# 30. Count punctuation marks in "Hello, world! How are you doing?".
+
+import string
+
+anotherstring="Hello, world! How are you doing?"
+count = 0
+for i in anotherstring:
+    if i in string.punctuation:
+        count+=1
+
+print(count) #or we can use manual by making punctuation list and use in stuff
