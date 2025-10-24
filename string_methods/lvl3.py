@@ -138,7 +138,7 @@ def problem_29():
     snake_case = "_".join(words)
     print("29.", snake_case, "\n")
 
-# 30. Count punctuation marks in "Hello, world! How are you doing?".
+"""# 30. Count punctuation marks in "Hello, world! How are you doing?".
 
 import string
 
@@ -148,4 +148,23 @@ for i in anotherstring:
     if i in string.punctuation:
         count+=1
 
-print(count) #or we can use manual by making punctuation list and use in stuff
+print(count) #or we can use manual by making punctuation list and use in stuff"""
+
+## 31. Compress "aaabbcaaa" to "a3b2c1a3".
+
+string = "aaabbcaaa"
+count = 1
+compressed = ""
+
+for i in range(1, len(string)):
+    if string[i] == string[i-1]:
+        count+=1
+    else:
+        compressed+=string[i-1] + str(count)
+        count=1
+
+compressed += string[-1] + str(count)
+
+print(compressed)
+        
+
