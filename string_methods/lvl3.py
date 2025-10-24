@@ -152,7 +152,7 @@ print(count) #or we can use manual by making punctuation list and use in stuff""
 
 ## 31. Compress "aaabbcaaa" to "a3b2c1a3".
 
-string = "aaabbcaaa"
+"""string = "aaabbcaaa"
 count = 1
 compressed = ""
 
@@ -165,6 +165,21 @@ for i in range(1, len(string)):
 
 compressed += string[-1] + str(count)
 
-print(compressed)
-        
+print(compressed)"""
 
+"""# 32. Expand "a3b2c1" to "aaabbc".  
+
+string = "a3b2c1"
+expaneded = ""
+count = 1
+for i in range(0, len(string)):
+    if string[i].isdigit():
+        count=int(string[i])
+        letter=string[i-1]
+        for j in range(int(count)):
+            expaneded+=letter
+
+print(expaneded)
+
+        
+"""
