@@ -183,3 +183,15 @@ print(expaneded)
 
         
 """
+# 33. Check if "Machine Learning" contains only alphabets and spaces.
+
+
+string = "Machine Learning"
+if " " in string:
+    string = string.replace(" ", "") #removing spaces cauz isalpha() returns false for spaces!
+    if string.isalpha():
+        print("True")
+    else:
+        print("False")
+else:
+    print("False")
