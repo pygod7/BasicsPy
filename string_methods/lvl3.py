@@ -3,13 +3,11 @@
 def problem_21():
     # 21. Find the longest word in "Deep learning simplifies many complex tasks".
     string = "Deep learning simplifies many complex tasks"
-
     words = string.split(" ")
     greatest = words[0]
     for i in range(len(words)):
         if len(words[i]) > len(greatest):
             greatest = words[i]
-
     print("21. The longest word is {}".format(greatest), "\n")
 
 
@@ -70,7 +68,6 @@ def problem_25():
         if i != " ":
             count[i] = count.get(i, 0) + 1
 
-    # find the most frequent character in one pass
     biggest = 0
     key = ''
     for k, v in count.items():
@@ -87,8 +84,8 @@ def problem_26():
     print("26. Is valid identifier?:", string.isidentifier(), "\n")
 
 
-# 27. Replace every second vowel in "Artificial Intelligence" with "*"
 def problem_27():
+    # 27. Replace every second vowel in "Artificial Intelligence" with "*"
     string = "Artificial Intelligence"
     vowels = ['a', 'e', 'i', 'o', 'u']
     new_string = ""
@@ -107,24 +104,22 @@ def problem_27():
     print("27.", new_string, "\n")
 
 
-# 28. Reverse the order of words in "Machine learning is amazing"
 def problem_28():
+    # 28. Reverse the order of words in "Machine learning is amazing"
     string = "Machine learning is amazing"
     words = string.split()
 
-    # Approach 1: Using slicing
     reversed_words = words[::-1]
     print("28. Using slicing:", " ".join(reversed_words))
 
-    # Approach 2: Using manual loop
     reversed_loop = []
     for i in range(len(words)-1, -1, -1):
         reversed_loop.append(words[i])
     print("28. Using loop:", " ".join(reversed_loop), "\n")
 
 
-# 29. Convert "thisIsCamelCase" to snake_case
 def problem_29():
+    # 29. Convert "thisIsCamelCase" to snake_case
     string = "thisIsCamelCase"
     words = []
     word = ''
@@ -138,60 +133,113 @@ def problem_29():
     snake_case = "_".join(words)
     print("29.", snake_case, "\n")
 
-"""# 30. Count punctuation marks in "Hello, world! How are you doing?".
 
-import string
+def problem_30():
+    # 30. Count punctuation marks in "Hello, world! How are you doing?" (original commented method)
+    import string
+    anotherstring = "Hello, world! How are you doing?"
+    count = 0
+    for i in anotherstring:
+        if i in string.punctuation:
+            count += 1
+    print("30. Punctuation count:", count, "\n")
 
-anotherstring="Hello, world! How are you doing?"
-count = 0
-for i in anotherstring:
-    if i in string.punctuation:
-        count+=1
 
-print(count) #or we can use manual by making punctuation list and use in stuff"""
+def problem_31():
+    # 31. Compress "aaabbcaaa" to "a3b2c1"
+    string = "aaabbcaaa"
+    count = 1
+    compressed = ""
 
-## 31. Compress "aaabbcaaa" to "a3b2c1a3".
+    for i in range(1, len(string)):
+        if string[i] == string[i-1]:
+            count += 1
+        else:
+            compressed += string[i-1] + str(count)
+            count = 1
+    compressed += string[-1] + str(count)
 
-"""string = "aaabbcaaa"
-count = 1
-compressed = ""
+    print("31.", compressed, "\n")
 
-for i in range(1, len(string)):
-    if string[i] == string[i-1]:
-        count+=1
+
+def problem_32():
+    # 32. Expand "a3b2c1" to "aaabbc"
+    string = "a3b2c1"
+    expaneded = ""
+    for i in range(0, len(string)):
+        if string[i].isdigit():
+            count = int(string[i])
+            letter = string[i-1]
+            for j in range(int(count)):
+                expaneded += letter
+    print("32.", expaneded, "\n")
+
+
+def problem_33():
+    # 33. Check if "Machine Learning" contains only alphabets and spaces
+    string = "Machine Learning"
+    if " " in string:
+        string = string.replace(" ", "")
+        if string.isalpha():
+            print("33. True\n")
+        else:
+            print("33. False\n")
     else:
-        compressed+=string[i-1] + str(count)
-        count=1
-
-compressed += string[-1] + str(count)
-
-print(compressed)"""
-
-"""# 32. Expand "a3b2c1" to "aaabbc".  
-
-string = "a3b2c1"
-expaneded = ""
-count = 1
-for i in range(0, len(string)):
-    if string[i].isdigit():
-        count=int(string[i])
-        letter=string[i-1]
-        for j in range(int(count)):
-            expaneded+=letter
-
-print(expaneded)
-
-        
-"""
-# 33. Check if "Machine Learning" contains only alphabets and spaces.
+        print("33. False\n")
 
 
-string = "Machine Learning"
-if " " in string:
-    string = string.replace(" ", "") #removing spaces cauz isalpha() returns false for spaces!
-    if string.isalpha():
-        print("True")
-    else:
-        print("False")
-else:
-    print("False")
+def problem_34():
+    # 34. Remove all digits from "AI2025 is the future 123"
+    string = "AI2025 is the future 123"
+    for i in string:
+        if i.isdigit():
+            string = string.replace(i, '')
+    print("34.", string, "\n")
+
+
+def problem_35():
+    # 35. Mask all letters except first and last in each word of "Artificial Intelligence Rocks"
+    string = "Artificial Intelligence Rocks"
+    words = string.split(" ")
+
+    # Original method (mine brain technique to solve this qn)
+    masked_list = []
+    for i in words:
+        masked_string = ""
+        first_letter = i[0]
+        last_letter = i[-1]
+        masked_string += first_letter
+        for j in range(1, len(i)-1):
+            masked_string += "*"
+        masked_string += last_letter
+        masked_list.append(masked_string)
+
+    masked_string = " ".join(masked_list)
+    print("35. Original method:", masked_string)
+
+    # OR: Using generator/list comprehension  (best way, learned later.)
+    masked_string_gen = " ".join(
+        word[0] + "*" * (len(word)-2) + word[-1] if len(word) > 2 else word
+        for word in words
+    )
+    print("35. Generator method:", masked_string_gen, "\n")
+
+if __name__ == "__main__":
+    problem_21()
+    problem_22()
+    problem_23()
+    problem_24()
+    problem_25()
+    problem_26()
+    problem_27()
+    problem_28()
+    problem_29()
+    problem_30()
+    problem_31()
+    problem_32()
+    problem_33()
+    problem_34()
+    problem_35()
+
+
+#$ ggs! you've learned string methods completely! ~ Rubin B
