@@ -10,7 +10,8 @@ def problem_9():
 def problem_10():
     # 10. Extract the substring from 3rd to 8th character of "NeuralNetworks".
     string = "NeuralNetworks"
-    extracted = string[3:8]
+    #extracted = string[3:8] # this was mistake, it shall be 2:7 beacuase we want 3rd to 8th char seen.
+    extracted = string[2:8]
     print('10. Extract the substring from 3rd to 8th character of "NeuralNetworks".')
     print("Answer:", extracted, "\n")
 
