@@ -101,3 +101,10 @@ string = "Machine Learning"  #reversing words also!
 
 for i in range(len(string)-1, -1, -1):
     print(string[i], end="")"""
+
+#20. Print all numbers from 1–10 using a `while` loop.
+
+i = 1
+while i<=5:
+    print(i)
+    i+=1
