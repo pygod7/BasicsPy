@@ -37,7 +37,7 @@ print("Even : ", e)
 print("Odd : ", o)"""
 
 #15. From `"AI2025@OpenAI"`, count digits, alphabets, and symbols using loops.
-import string
+"""import string
 alpha = 0
 digit = 0
 symbols = 0
@@ -51,4 +51,53 @@ for i in stringg:
         symbols+=1
 
 print("Digits : {} Symbols {} Alpha {}".format(digit,symbols,alpha))
+"""
 
+"""#16. Count how many times `"a"` appears in `"bananas"` without using `count()`.
+
+string = "bananas"
+c=0
+for i in string:
+    if str(i) == "a":
+        c+=1
+
+print("A times {}".format(c))"""
+
+"""
+#17. Print `"Fizz"` for multiples of 3, `"Buzz"` for multiples of 5, and `"FizzBuzz"` for both (1–30).
+
+for i in range(1, 31):
+    if (i%3 == 0 and i%5 == 0):
+        print("FizzBuzz")
+    elif i%5==0:
+        print("Buzz")
+    elif (i%3 == 0):
+        print("Fizz")
+"""
+
+
+"""#18. Print all numbers between 1–50 divisible by 3 or 5 but not both.
+
+for i in range(1, 51):
+    if (i%3 == 0 and i%5 == 0):
+        pass
+    elif i%3==0:
+        print(i)
+    elif i%5==0:
+        print(i)
+"""
+"""#19. Reverse the string `"Machine Learning"` using loops only.
+
+string = "Machine Learning"
+
+splitted = string.split(" ")
+reversed = []
+for i in range(len(splitted)-1, -1, -1):
+    reversed.append(splitted[i])
+
+print(" ".join(reversed))   #reversing the words btw.
+
+string = "Machine Learning"  #reversing words also!
+
+for i in range(len(string)-1, -1, -1):
+    print(string[i], end="")"""
